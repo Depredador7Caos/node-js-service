@@ -4,7 +4,8 @@ import path from "path";
 
 /* called sources */
 import { PORT } from "./config/config.js";
-import { router} from "./routes/route.js";	
+import indexRouter from "./routes/index.routes.js";	
+import employeesRouter from "./routes/employees.routes.js";
 
 const app = express();
 
@@ -15,7 +16,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join('public')));
 
-app.get("/", router);
+app.use(indexRouter);
+app.use(employeesRouter);
+
+//app.get("/", indexRouter);
+
+
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT);

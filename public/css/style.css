@@ -87,7 +87,50 @@ body{
     text-align: center;
 }
 
+/*----------- Formukario ---------*/
 
+.formulario {
+    text-align: center;
+    padding: 20px 20px;
+    color: #e2f1f8;
+    background: rgba(46, 48, 25, 0.72);
+}
+
+.formulario .div-form {
+    padding: 10px 10px;
+    background: rgba(0, 0, 1, 0.72);
+}
+
+.formulario .div-form .form-text{
+    padding: 10px 10px;
+    color: #e2f1f8;
+}
+
+.formulario .div-form .input-1{
+    padding: 10px 10px;
+}
+
+.formulario .div-form .input-2{
+    padding: 10px 10px;
+}
+
+.formulario .div-form .btn-access {
+    text-align: center;
+    height: 2.5rem;
+    width: 10rem;
+    background-color: #1b3039;
+    color:#e2f1f8;
+    padding: 0 20px;
+    border: none;
+    border-radius: 15%;
+}
+
+.formulario .div-form .btn-access:hover {
+    color: #ffbc0e;
+    background: rgba(0, 0, 5, 0.5);
+    padding: 5px;
+}
+/*---------------------------------*/
 
 
 

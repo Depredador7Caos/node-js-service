@@ -13,3 +13,17 @@ function multiplicacion() {
 }
 
 multiplicacion();
+
+function validateForm() {
+
+    let email = document.forms["formulario"]["email"].value;
+    let pass = document.forms["formulario"]["password"].value;
+
+    if (email == "" || pass == "") {
+        //alert("Error form not compled");
+        return false;
+    }
+    const alerta = getElementById("alerta");
+    alerta.innerHTML = "Hello world!";
+}
+validateForm()
