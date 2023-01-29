@@ -1,28 +1,21 @@
 /* called of frameworks */
 import express from "express";
+import path from "path";
 
 /* called sources */
-import { pool } from "./src/db.js";
-import { PORT } from "./config/config.js";	
+import { PORT } from "./config/config.js";
+import { router} from "./routes/route.js";	
 
 const app = express();
 
-app.get("/", (req, res, next) => {
-    res.send("hello world!");
-})
+app.set('views', path.join('view'));
+app.set('view engine', 'ejs');
 
-app.get("/ping", async (req, res, next) => {
-    const result = await pool.query(`SELECT * FROM users`);
-    res.json(result[0]);
-})
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join('public')));
 
-app.get("/create", async (req, res, next) => {
-    const result = await pool.query(
-        ` INSERT INTO users(name) VALUES ("jonh") `
-    )
-
-    res.json(result);
-});
+app.get("/", router);
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT);
