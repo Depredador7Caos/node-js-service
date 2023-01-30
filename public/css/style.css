@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,6 +12,40 @@ body{
 }
 
 /* desing navegation */
+.navbar {
+    background-color: #1b3039;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.navbar .navbar-brand{
+    color: #e2f1f8;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.5rem;
+    margin-left: 0.4rem;
+}
+.navbar .navbar-brand:hover {
+    transform: scale(1.1);
+    color: #ffbc0e;
+}
+.nav-link {
+    justify-content: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.nav-item{
+    color: #eceff1;
+    text-decoration: none;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.nav-item:hover{
+    color: #ffbc0e;
+}
+/**********/
 .navegacion {
     background-color: #1b3039;
     display: flex;
@@ -87,7 +120,7 @@ body{
     text-align: center;
 }
 
-/*----------- Formukario ---------*/
+/*----------- Formulario ---------*/
 
 .formulario {
     text-align: center;
@@ -141,10 +174,45 @@ body{
     text-align: center;
 }
 
-.col{
-    background: rgba(0, 0, 5, 0.5);
-    font-family: 'Courier New', Courier, monospace;
-    height: 50px;
+/*         Parte del index         */
+.contenedor-card {
+    padding: 0 20px;
+    text-align: center;
+}
+.contenedor-card .card {
+    position: relative;
+    text-align: justify;
+    display: inline-block;
+    padding: 10px 10px;
+    justify-content: center;
+    margin: 1rem;
 }
 
-/* diseño de navegacion */
+.contenedor-card .card .card-img-top{
+    border: none;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.contenedor-card .card .card-img-top:hover{ 
+    transform: scale(0.9);
+}
+.contenedor-card .card .card-text{
+    font-family: 'Arial';
+}
+.contenedor-card .card .btn-aa {
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.contenedor-card .card .btn-aa:hover {
+    background-color: #e2f1f8;
+    color:#ffbc0e;
+    transform: scale(1.1);
+}
+/*---------------------------------*/
