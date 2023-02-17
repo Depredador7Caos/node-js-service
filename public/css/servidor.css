@@ -1,0 +1,41 @@
+:root{
+    --color-border: aqua;
+    --color-border-2: #eced45;
+    --color-background: #1aadc0e8;
+    --color-rbga: rgba(0, 0, 0, 0.52);
+}
+
+
+
+.main-lateral {
+    background: var(--color-background);
+    display: flex;
+}
+
+.main-lateral .cont-left{
+    border: 1px solid var(--color-border);
+    background: var(--color-rbga);
+}
+
+.main-lateral .cont-right{
+    border: 1px solid var(--color-border-2);
+    background: var(--color-rbga);
+}
+
+/* contenedor_productos */
+.main-lateral .cont-right .contenedor_producto {
+    margin: 1rem;
+}
+.main-lateral .cont-right .contenedor_producto .producto{
+    margin: 1rem;
+    display: inline-block;
+    align-items: center;
+}
+
+.main-lateral .cont-right .tabla_productos{
+    margin: 0.5rem;
+}
+
+.main-lateral .cont-right .calendar{
+    margin: 0.5rem;
+}

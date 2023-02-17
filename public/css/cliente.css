@@ -1,0 +1,71 @@
+:root {
+    --color-navegador: #166d79;
+    --color-hovere: #e1f73fe0;
+}
+
+.navbar{ 
+    height: 5rem;
+}
+
+.navbar .container-fluid {
+    background: var(--color-navegador);
+    font-size: 1.2rem;
+    padding: 0 10px;
+}
+
+.navbar .container-fluid .navbar-brand { 
+    font-size: 2rem;
+    margin: 0.5rem;
+    padding: 0 10px;
+    transition: all 0.4s;
+}
+
+.navbar .container-fluid .navbar-brand:hover { 
+    color: var(--color-hovere);
+    transform: scale(1.2);
+}
+
+.navbar .container-fluid .navbar-brand .collapse{ 
+    color: white;
+    transition: all 0.3s
+}
+
+.navbar .container-fluid .navbar-brand .collapse .navbar-nav{
+    color: white;
+
+ }
+
+.navbar .container-fluid .navbar-brand .collapse:hover{ 
+    transform: scale(1.2);
+    color: yellow;
+}
+
+
+/* index, parte principal */
+.row{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.card{
+    margin: 0.2rem;
+    padding: 0 10px;
+    border-radius: 8px;
+
+}
+.card .card-img-top {
+    height: 12rem;
+}
+.card .card-body ´{
+    justify-content: center;
+    align-items: center;
+    display: inline;
+    text-align: center;
+}
+.card .card-body .card-link {
+    width: 5.5rem;
+    transition: all 0.3s;
+}
+.card .card-body .card-link:hover {
+    width: 5.4rem;
+    transform: scale(1.2);
+}

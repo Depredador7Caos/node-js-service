@@ -1,0 +1,120 @@
+<!-- Navegacion de pagina -->
+<%- include('./partials/nav.ejs') %>
+
+<div class="main-lateral">
+    <div class="cont-left col-2 border border-success">
+        <ul>
+            <li><a href="#"> Home </a></li>
+            <li><a href="#"> My perfil </a></li>
+            <li><a href="#"> Calendario </a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Control Clientes </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"> Pedidos </a></li>
+                        <li><a class="dropdown-item"> Mis Clientes </a></li>
+                        <li><a class="dropdown-item"> </a></li>
+                    </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Catalogo </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item"> ... </a></li>
+                        <li><a class="dropdown-item"> ... </a></li>
+                        <li><a class="dropdown-item"> ... </a></li>
+                    </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="cont-right col-10 border border-dark">
+        <%- include('./views/add_product.ejs') %>
+
+        <!-- Lista Productos -->
+        <div class="contenedor_producto border border-danger" id="lista_Productos">
+            <% result.forEach((products) => { %>
+                <div class="card producto" style="width: 18rem;">
+                    <img src="<%= products.url %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> <%= products.name %> </h5>
+                        <p class="card-text"> <%= products.categoria %> </p>
+                        <h6 class="card-text"> <%= products.cantidad %> </h6>
+                        <a href="/edit/<%= products.id %>" class="btn btn-primary" >Editar</a>
+                        <a href="/delete/<%= products.id %>" class="btn btn-danger"> Delete </a>
+                    </div>
+                </div>
+            <% }) %>
+        </div> <!-- Cierra lista-Productos -->
+
+        <!-- tabla productos -->
+        <div class="tabla_productos">
+            <table class="table table-bordered border-dark table-info" id="tabla">
+                <thead>
+                  <tr class="text text-aling">
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Existencias</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">opciones producto</th>
+                  </tr>
+                </thead>
+                <% result.forEach((products) => { %>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <th>  <%= products.name %> </th>
+                            <td>  <%= products.categoria %></td>
+                            <td>  <%= products.cantidad %></td>
+                            <td>  <%= products.precio %></td>
+                            <td> 
+                                <a href="/edit/<%= products.id %>" class="btn btn-primary" >Editar</a>
+                                <a href="/delete/<%= products.id %>" class="btn btn-danger"> Delete </a>
+                            </td>
+                        </tr>
+                      </tbody>
+                <% }) %>
+            </table>
+        </div> <!-- Cierra de tabla productos -->
+
+        <!-- Construccion de calendario -->
+        <div class="calendar" id="calendar">
+
+        </div> <!-- Cierra Construccion calendario -->
+
+        <template id="my-template">
+            <swal-title>
+              Save changes to "Untitled 1" before closing?
+            </swal-title>
+            <swal-icon type="warning" color="red"></swal-icon>
+            <swal-button type="confirm">
+              Save As
+            </swal-button>
+            <swal-button type="cancel">
+              Cancel
+            </swal-button>
+            <swal-button type="deny">
+              Close without Saving
+            </swal-button>
+            <swal-param name="allowEscapeKey" value="false" />
+            <swal-param
+              name="customClass"
+              value='{ "popup": "my-popup" }' />
+            <swal-function-param
+              name="didOpen"
+              value="popup => console.log(popup)" />
+          </template>
+
+          <button data-swal-toast-templates="#my-templates"> alert</button>
+							<script>
+								//Swal.bindClickHandler();
+								const { value: email } = await Swal.fire({
+									title: 'Input email address',
+									input: 'email',
+									inputLabel: 'Your email address',
+									inputPlaceholder: 'Enter your email address'
+									});
+
+									if (email) {
+									Swal.fire(`Entered email: ${email}`)
+									}
+							</script>
+    </div> <!-- Cierra content-right -->
+</div> <!-- Cierra main-lateral -->

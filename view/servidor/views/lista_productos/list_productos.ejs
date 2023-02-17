@@ -1,0 +1,17 @@
+
+
+<div class="card">
+    <% result.forEach((producto) => { %>
+        <div class="card row mb-3" style="width: 18rem;">
+            <img src="<%= producto.url %>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> <%= producto.name %> </h5>
+                <p class="card-text"> <%= producto.categoria %> </p>
+                <h6 class="card-text"> <%= producto.cantidad %> </h6>
+                <a href="#" class="btn btn-primary">Editar</a>
+                <a href="#" class="btn btn-danger"> Delete </a>
+            </div>
+        </div>
+    <% }) %>
+</div>
+<script src="/"></script>

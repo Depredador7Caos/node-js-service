@@ -1,11 +1,11 @@
 /* called of frameworks */
-import express from "express";
-import path from "path";
+const express = require ("express");
+const path = require ("path");
 
 /* called sources */
-import { PORT } from "./config/config.js";
-import indexRouter from "./routes/index.routes.js";	
-import employeesRouter from "./routes/employees.routes.js";
+const { PORT } = require ("./config/config.js");
+const indexRouter = require ("./src/routes/index.routes.js");	
+const employeesRouter = require ("./src/routes/employees.routes.js");
 
 const app = express();
 
@@ -16,13 +16,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join('public')));
 
+/// Routeo
 app.use(indexRouter);
 app.use(employeesRouter);
 
-//app.get("/", indexRouter);
 
+app.use((req, res, next) => {
+    res.status(404).json({
+        message: "endpoint not found"
+    });
+})
 
-
+/// server
 app.listen(PORT, () => {
     console.log('listening on port', PORT);
 });

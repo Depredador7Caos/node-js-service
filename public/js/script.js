@@ -13,7 +13,7 @@ function multiplicacion() {
 }
 
 multiplicacion();
-
+/*
 function validateForm() {
 
     let email = document.forms["formulario"]["email"].value;
@@ -26,4 +26,4 @@ function validateForm() {
     const alerta = getElementById("alerta");
     alerta.innerHTML = "Hello world!";
 }
-validateForm()
+validateForm()*/

@@ -1,0 +1,51 @@
+<%- include ('./partials/nav_cliente.ejs') %>
+
+<div class="col">
+    <div class="container row-8 mt-2">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://phantom-marca.unidadeditorial.es/c926d4973d049ffbc73c3d22e80c12d9/resize/660/f/webp/assets/multimedia/imagenes/2022/04/01/16488138624951.jpg" class="d-block w-100" alt="...">
+                </div>
+        
+                <div class="carousel-item">
+                    <img src="https://phantom-marca.unidadeditorial.es/39b19fcfab9e7c841b98134ddba8fd7d/resize/990/f/webp/assets/multimedia/imagenes/2022/04/01/16488138613280.jpg" class="d-block w-100" alt="...">
+                </div>
+        
+                <div class="carousel-item">
+                    <img src="https://phantom-marca.unidadeditorial.es/bc86b05fdb29d0254b4b30a973835fe8/resize/990/f/webp/assets/multimedia/imagenes/2022/04/02/16488802684311.jpg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+        
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+        
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="row container mt-2 p-2 yt-2">
+        <% for( let producto in result ) { %>
+            <div class="card col-3" style="width: 16rem;">
+                <img src="<%= result[producto].url %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"> <%= result[producto].name %> </h5>
+                    <p class="card-text"> $ <%= result[producto].precio %> </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Categoria: <%= result[producto].categoria %></li>
+                    <li class="list-group-item">Existencias <%= result[producto].cantidad %></li>
+                </ul>
+                <div class="card-body col-12">
+                    <a href="#" class="card-link btn btn-success col-6">Add Car</a>
+                    <a href="#" class="card-link btn btn-warning col-6">Buy</a>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+<%- include ('./partials/footer_cliente.ejs') %>

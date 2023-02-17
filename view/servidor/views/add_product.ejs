@@ -1,0 +1,46 @@
+<form id="formulario" action="/register-product" method="post">
+    <h1> Create a new Product</h1>
+    <div class="container">
+        <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label">Name Product</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputText" name="product_name" required>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="inputText" class="col-sm-2 col-form-label">URL IMAGE</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputText" name="product_url" required>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="inputNumber" class="col-sm-2 col-form-label">Precio</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputText" speed="1" name="price" required>
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="inputNumber" class="col-sm-2 col-form-label">Cantidad existencial</label>
+            <div class="col-sm-10">
+                <input type="number" class="form-control" id="inputNumber" speed="1" name="cant_existente" required>
+            </div>
+        </div>
+    
+        <div class="row mb-3">
+            <label class="visually-hidden col-sm-2 col-form-label" for="specificSizeSelect">Categoria</label>
+            <div class="col-sm-12">
+                <select class="form-select" id="specificSizeSelect" name="product_category">
+                    <option selected>Categoria...      </option>
+                    <option value="Lacteo"  > Lacteo   </option>
+                    <option value="Fritura" > Fritura  </option>
+                    <option value="Enlatado"> Enlatado </option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success col-2"> Create new product </button>
+        <button class="btn btn-danger col-2" id="cancel"> Cancel </button>
+    </div>
+</form>

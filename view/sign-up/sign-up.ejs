@@ -2,31 +2,22 @@
 
 <%- include('../partials/Navegacion/nav.ejs') %>
 
-<form class="formulario p-3" action="/registro" method="post">
+<form class="formulario p-3">
     <div class="div-form">
 
         <div class="mb-3 input-1">
-            <label for="exampleInputtext" class="form-label">New User</label>
-            <input type="text" class="form-control" id="exampleInputText" name="user">
-        </div>
-
-        <div class="mb-3 input-1">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
 
         <div class="mb-3 input-2">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            <input type="password" class="form-control" id="exampleInputPassword1">
         </div>
 
         <button type="submit" class="btn-access">acceder</button>
     </div>
 </form>
-
-<div id="alerta">
-
-</div>
 
 <%- include('../partials/scripts.ejs') %>

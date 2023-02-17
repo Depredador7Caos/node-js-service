@@ -1,0 +1,27 @@
+<!-- Navegacion de pagina -->
+<%- include('../partials/nav.ejs') %>
+
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID Cliente</th>
+            <th scope="col">Nombre cliente</th>
+            <th scope="col">E-mail</th>
+          </tr>
+        </thead>
+        <% result.forEach((clients) => { %>
+            <tbody class="table-group-divider">
+                <tr>
+                  <th scope="row"> <%= clients.id %> </th>
+                  <td><%= clients.name %></td>
+                  <td><%= clients.email %></td>
+                </tr>
+              </tbody>
+        <% }) %>
+    </table>
+</div>
+
+<%- include('../partials/footer.ejs') %>

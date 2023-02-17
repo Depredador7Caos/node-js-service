@@ -1,0 +1,57 @@
+<a href="/store"> home </a>
+<hr>
+<% if(productos) { %>
+    <div class="container">
+        <!-- Formulario editar producto -->
+        <form id="formulario" action="/update-producto" method="POST">
+            <input id="id" name="id" value="<%= productos.id %>" hidden>
+            <div class="container">
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Name Product</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputText" name="product_name" value="<%= productos.name %>" required>
+                    </div>
+                </div>
+            
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">URL IMAGE</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputText" name="product_url" value="<%= productos.url %>" required>
+                    </div>
+                </div>
+        
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-2 col-form-label">Precio</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputText" speed="1" name="price" value="<%= productos.precio %>" required>
+                    </div>
+                </div>
+            
+                <div class="row mb-3">
+                    <label for="inputNumber" class="col-sm-2 col-form-label">Cantidad existencial</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="inputNumber" speed="1" name="cant_existente" value="<%= productos.cantidad %>" required>
+                    </div>
+                </div>
+        
+                <div class="row mb-3">
+                    <label class="visually-hidden col-sm-2 col-form-label" for="specificSizeSelect">Categoria</label>
+                    <div class="col-sm-12">
+                        <select class="form-select" id="specificSizeSelect" name="product_category" required>
+                            <option <%= productos.categoria=='Other' ? "selected" : '' %> value="other">Categoria...      </option>
+                            <option <%= productos.categoria=='Lacteo' ? "selected" : '' %> value="Lacteo"  > Lacteo   </option>
+                            <option <%= productos.categoria=='Fritura' ? "selected" : '' %> value="Fritura" > Fritura  </option>
+                            <option <%= productos.categoria=='Enlatado' ? "selected" : '' %> value="Enlatado"> Enlatado </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger" > Cancelar</button>
+                    <button type="summit" class="btn btn-warning"> Update </button>
+                </div>
+            </div>
+        </form>
+    </div>
+<% } %>
