@@ -1,7 +1,7 @@
 const { Router }  = require ('express');
 const { ping } = require ('../controllers/selects.js');
 const { createPing } = require ('../controllers/inserts.js');
-
+ 
 const router = Router();
 
 /* Page started */
@@ -26,7 +26,7 @@ router.get('/sign-up', (req, res) => {
     try {
         res.render('../view/sign-up/sign-up');
     } catch (error) {
-        console.log(error                                                                                                     );
+        console.log(error);
     }
 });
 
@@ -37,21 +37,27 @@ router.get("/create", createPing);
 /**==============================
  *        Parte del servidor
  * ============================*/
-/*router.get("/store", async(req, res, next) => {
+router.get("/store", (req, res, next) => {
+    //res.render("../view/sign-up/sign-up" );
     res.render("../view/servidor/productos")
-});*/
+});
+
+router.get("/lista-existencias", (req, res, next) => {
+    //res.render("../view/sign-up/sign-up" );
+    res.render("../view/servidor/views/lista_productos/lista_existencias");
+});
 
 /**==============================
  *        Parte del cliente
  * ============================*/
 
-/*router.get("/cliente", (req, res) => {
+router.get("/cliente", (req, res) => {
     try {
         res.render("../view/cliente/index");
     } catch (error) {
         res.json({message: "Page not found", error: error});
     }
-});*/
+});
 
 
 module.exports = router;

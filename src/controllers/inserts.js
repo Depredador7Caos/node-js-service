@@ -1,4 +1,9 @@
 const conexion = require('../db.js');
+const bcrypt = require('bcrypt');
+
+const path = require('path');
+
+
 
 exports.createPing = async (req, res, next) => {
     try {
@@ -14,10 +19,11 @@ exports.createPing = async (req, res, next) => {
 /**==================================
  *     Registers new's clientes
 ====================================*/
-exports.clientes =  (req, res) => {
+exports.clientes =  async (req, res) => {
     try {
-        const { user, email, password } = req.body;
-    
+        //const password = await bcrypt.hash(req.body.password, 10);
+        const { user, email, password} = req.body;
+
         conexion.query (` INSERT INTO clients SET ? `, {
             name: user,
             email: email,
@@ -26,7 +32,8 @@ exports.clientes =  (req, res) => {
             if (error) {
                 throw error;
             } else {
-                res.redirect('/cliente')
+                
+                res.redirect('/cliente');
             }
         });
     } catch (error) {
@@ -38,9 +45,9 @@ exports.clientes =  (req, res) => {
  *     Parte del servidor
 ====================================*/
 exports.productos = (req, res) => {
-    const {product_name, product_url, price, cant_existente, product_category} = req.body;
+    const {product_name, price, product_url, cant_existente, product_category} = req.body;
 
-    conexion.query(` INSERT INTO products SET ? `, {
+     conexion.query(` INSERT INTO products SET ? `, {
         name: product_name,
         url: product_url,
         precio: price,
@@ -53,6 +60,7 @@ exports.productos = (req, res) => {
             //res.send(results);
             //console.log(results);
             res.redirect('/store');
+            console.log(results);
         }
     });
 };

@@ -1,0 +1,25 @@
+<%- include('../../partials/nav.ejs') %>
+<!-- Lista Productos -->
+
+<div class="contenedor-producto">
+    <% result.forEach((producto) => { %>
+        <div class="app_producto">
+            <img class="app_producto-img" src="<%= producto.url %>" alt="null" height="50px" width="80px">
+            <div class="app-producto-carateristicas">
+                <h4><%= producto.name %> </h4>
+                <p><%= producto.categoria %></p>
+                <h5><%= producto.cantidad %></h5>
+                <div>
+                    <a href="/edit/<%= producto.id %>" class="btn btn-primary" >Editar</a>
+                    <a href="/delete/<%= producto.id %>" class="btn btn-danger"> Delete </a>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+
+
+<!-- Cierra lista-Productos -->
+
+<%- include('../../partials/footer.ejs') %>

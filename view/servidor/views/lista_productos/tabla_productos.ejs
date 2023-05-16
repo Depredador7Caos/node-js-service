@@ -1,0 +1,39 @@
+<%- include('../../partials/nav.ejs') %>
+
+  <div class="cont-right col-10 border border-dark">
+    <%- include('../add_product.ejs') %>
+  </div>
+
+ <!-- tabla productos -->
+ <div class="tabla_productos" >
+    <h1 class="card-title"> Tabla productos </h1>
+    <table class="table table-bordered border-dark">
+        <thead class="thead">
+          <tr class="text text-aling">
+            <th class="th" scope="col">Nombre Producto</th>
+            <th class="th" scope="col">Categoria</th>
+            <th class="th" scope="col">Existencias</th>
+            <th class="th" scope="col">Precio</th>
+            <th class="th" scope="col">opciones producto</th>
+          </tr>
+        </thead>
+        <% product.forEach((productos) => { %>
+            <tbody class="tbody table-group-divider">
+                    <tr>
+                        <th class="th">  <%= productos.name %> </th>
+                        <td class="td">  <%= productos.categoria %></td>
+                        <td class="td">  <%= productos.cantidad %></td>
+                        <td class="td">  <%= productos.precio %></td>
+                        <td class="td-btn">                            
+                            <a href="/edit/<%= productos.id %>"   class="btn btn-warning" >Editar</a>
+                            <a href="/delete/<%= productos.id %>" class="btn btn-danger"> Delete </a>
+                        </td>
+                    </tr>
+              </tbody>
+             
+        <% }) %>
+    </table>
+</div> <!-- Cierra de tabla productosos -->
+
+
+<%- include('../../partials/footer.ejs') %>

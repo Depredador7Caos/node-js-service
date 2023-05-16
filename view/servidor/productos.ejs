@@ -7,114 +7,93 @@
             <li><a href="#"> Home </a></li>
             <li><a href="#"> My perfil </a></li>
             <li><a href="#"> Calendario </a></li>
+            <li><a href="/lista-existencias"> Productos </a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Control Clientes </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"> Pedidos </a></li>
-                        <li><a class="dropdown-item"> Mis Clientes </a></li>
-                        <li><a class="dropdown-item"> </a></li>
-                    </ul>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item"> Pedidos </a></li>
+                    <li><a class="dropdown-item"> Mis Clientes </a></li>
+                    <li><a class="dropdown-item" href="/lista-existencias"> Existencias</a></li>
+                </ul>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Catalogo </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item"> ... </a></li>
-                        <li><a class="dropdown-item"> ... </a></li>
-                        <li><a class="dropdown-item"> ... </a></li>
-                    </ul>
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Catálogo </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item"> dashboard </a></li>
+                    <li><a href="/tabla-productos" class="dropdown-item"> Tabla Productos </a></li>
+                    <li><a class="dropdown-item"> ... </a></li>
+                    <li><a class="dropdown-item"> ... </a></li>
+                </ul>
             </li>
         </ul>
     </div>
 
     <div class="cont-right col-10 border border-dark">
         <%- include('./views/add_product.ejs') %>
+        
+        <!-- Construccion de calendario -->
+        <div class="calendar">
+            <!-- Eventos remmovibles -->
+            <div id="external-events">
+                <p><strong> Draggable Events </strong></p>
 
-        <!-- Lista Productos -->
-        <div class="contenedor_producto border border-danger" id="lista_Productos">
-            <% result.forEach((products) => { %>
-                <div class="card producto" style="width: 18rem;">
-                    <img src="<%= products.url %>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"> <%= products.name %> </h5>
-                        <p class="card-text"> <%= products.categoria %> </p>
-                        <h6 class="card-text"> <%= products.cantidad %> </h6>
-                        <a href="/edit/<%= products.id %>" class="btn btn-primary" >Editar</a>
-                        <a href="/delete/<%= products.id %>" class="btn btn-danger"> Delete </a>
+                <div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
+                    <div class='fc-event-main'> Event One </div>
+                </div>
+
+                <div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
+                    <div class='fc-event-main'> Event Two</div>
+                </div>
+
+                <div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
+                    <div class='fc-event-main'> Event Threee</div>
+                </div>
+
+                <div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
+                    <div class='fc-event-main'> Event Four </div>
+                </div>
+
+                <div class="fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event">
+                    <div class='fc-event-main'> Event Five</div>
+                </div>
+
+                <p>
+                    <label for="drop-remove"> Remove after drop</label>
+                    <input type="checkbox" id="drop-remove">
+                </p>
+
+                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top"> Tooltip on top
+                </button>
+            </div> <!-- Cierre de Eventos removibles -->
+
+
+            <!-- Contenedor calendario -->
+            <div id="calendar" class="card"> </div>
+
+            <div class="modal fade" id="modal-event" tabindex="-1" role="dialog" aria-labelledby="modal-eventLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="event-title"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="event-description"></div>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
                 </div>
-            <% }) %>
-        </div> <!-- Cierra lista-Productos -->
-
-        <!-- tabla productos -->
-        <div class="tabla_productos">
-            <table class="table table-bordered border-dark table-info" id="tabla">
-                <thead>
-                  <tr class="text text-aling">
-                    <th scope="col">Nombre Producto</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Existencias</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">opciones producto</th>
-                  </tr>
-                </thead>
-                <% result.forEach((products) => { %>
-                    <tbody class="table-group-divider">
-                        <tr>
-                            <th>  <%= products.name %> </th>
-                            <td>  <%= products.categoria %></td>
-                            <td>  <%= products.cantidad %></td>
-                            <td>  <%= products.precio %></td>
-                            <td> 
-                                <a href="/edit/<%= products.id %>" class="btn btn-primary" >Editar</a>
-                                <a href="/delete/<%= products.id %>" class="btn btn-danger"> Delete </a>
-                            </td>
-                        </tr>
-                      </tbody>
-                <% }) %>
-            </table>
-        </div> <!-- Cierra de tabla productos -->
-
-        <!-- Construccion de calendario -->
-        <div class="calendar" id="calendar">
+            </div> <!-- Cierra Modal -->
 
         </div> <!-- Cierra Construccion calendario -->
-
-        <template id="my-template">
-            <swal-title>
-              Save changes to "Untitled 1" before closing?
-            </swal-title>
-            <swal-icon type="warning" color="red"></swal-icon>
-            <swal-button type="confirm">
-              Save As
-            </swal-button>
-            <swal-button type="cancel">
-              Cancel
-            </swal-button>
-            <swal-button type="deny">
-              Close without Saving
-            </swal-button>
-            <swal-param name="allowEscapeKey" value="false" />
-            <swal-param
-              name="customClass"
-              value='{ "popup": "my-popup" }' />
-            <swal-function-param
-              name="didOpen"
-              value="popup => console.log(popup)" />
-          </template>
-
-          <button data-swal-toast-templates="#my-templates"> alert</button>
-							<script>
-								//Swal.bindClickHandler();
-								const { value: email } = await Swal.fire({
-									title: 'Input email address',
-									input: 'email',
-									inputLabel: 'Your email address',
-									inputPlaceholder: 'Enter your email address'
-									});
-
-									if (email) {
-									Swal.fire(`Entered email: ${email}`)
-									}
-							</script>
     </div> <!-- Cierra content-right -->
 </div> <!-- Cierra main-lateral -->
+
+<!-- Navegacion de pagina -->
+<%- include('./partials/footer.ejs') %>

@@ -29,23 +29,21 @@
         </div>
     </div>
     <div class="row container mt-2 p-2 yt-2">
-        <% for( let producto in result ) { %>
             <div class="card col-3" style="width: 16rem;">
-                <img src="<%= result[producto].url %>" class="card-img-top" alt="...">
+                <img src="" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"> <%= result[producto].name %> </h5>
-                    <p class="card-text"> $ <%= result[producto].precio %> </p>
+                    <h5 class="card-title"> </h5>
+                    <p class="card-text"> $  </p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Categoria: <%= result[producto].categoria %></li>
-                    <li class="list-group-item">Existencias <%= result[producto].cantidad %></li>
+                    <li class="list-group-item">Categoria: </li>
+                    <li class="list-group-item">Existencias </li>
                 </ul>
                 <div class="card-body col-12">
                     <a href="#" class="card-link btn btn-success col-6">Add Car</a>
                     <a href="#" class="card-link btn btn-warning col-6">Buy</a>
                 </div>
             </div>
-        <% } %>
     </div>
 </div>
 <%- include ('./partials/footer_cliente.ejs') %>

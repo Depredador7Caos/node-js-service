@@ -1,9 +1,14 @@
 const conexion = require ('../db.js');
 
-exports.ping = async (req, res, next) => {
+exports.ping = (req, res, next) => {
     try {
-        const [result] = await conexion.query(`SELECT * FROM users`);
-        res.json(result);
+        conexion.query(`SELECT * FROM users`, (error, users) => {
+            if (error) {
+                res.json({message: "Page not found", error: error});
+            } else {
+                res.json(users);
+            }
+        });
     } catch (error) {
         res.json({message: "Page not found", error: error});
     }
@@ -38,7 +43,21 @@ exports.selectProducts = (req, res, next) =>{
             if (error) {
                 res.status(404).json({ message: "Productos not send"});
             } else {
-                res.render('../view/servidor/productos', {result: results});
+                res.render('../view/servidor/views/lista_productos/lista_existencias', {result: results});
+            }
+        });
+    } catch (error) {
+        return res.status(500).json({message: "Something goes wrong"});
+    }
+};
+// Datos que osn pasados a al tabla productos
+exports.selectProductsTable = (req, res, next) =>{
+    try {
+        conexion.query(`SELECT * FROM products`, (error, results) => {
+            if (error) {
+                res.status(404).json({ message: "Productos not send"});
+            } else {
+                res.render('../view/servidor/views/lista_productos/tabla_productos', {product: results});
             }
         });
     } catch (error) {

@@ -1,0 +1,23 @@
+<%- include('./tabla_productos') %>
+<% if(vista) { %>
+    <!-- Button trigger modal -->
+    
+<h1> </h1>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"> <%= product[i] %></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="" style="width: 18rem; height: 20rem;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar vista producto</button>
+                </div>
+            </div>
+        </div>
+    </div><!-- Ciere Modal vista producto -->
+<% } %>
